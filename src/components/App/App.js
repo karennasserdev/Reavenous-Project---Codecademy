@@ -1,7 +1,6 @@
 //PAI DE TODOS
 
 import React from 'react';
-import logo from '../../logo.svg';
 import './App.css';
 
 import BusinessList from '../BusinessList/BusinessList';
@@ -31,11 +30,16 @@ const businesses = [
 ];
 
 class App extends React.Component {
+
+  searchYelp(term, location, sortBy) {
+    console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`);
+  }
+
   render(){
     return (
       <div className="App">
         <h1>ravenous</h1>
-        <SearchBar/>
+        <SearchBar searchYelp={this.searchYelp}/>
         {/* App chama o BusinessList e passa como props o array businesses  (que sao 6x o objeto)*/}
         <BusinessList businessesProp={businesses}/>
       </div>
